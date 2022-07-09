@@ -1,0 +1,81 @@
+{
+  "keys": [
+    {
+      "value": "(",
+      "keyEvent": "("
+    },
+    {
+      "value": "C",
+      "keyEvent": "Escape"
+    },
+    {
+      "value": ")",
+      "keyEvent": ")"
+    },
+    {
+      "value": " / ",
+      "keyEvent": "/"
+    },
+    {
+      "value": 7,
+      "keyEvent": "7"
+    },
+    {
+      "value": 8,
+      "keyEvent": "8"
+    },
+    {
+      "value": 9,
+      "keyEvent": "9"
+    },
+    {
+      "value": " * ",
+      "keyEvent": "*"
+    },
+    {
+      "value": 4,
+      "keyEvent": "4"
+    },
+    {
+      "value": 5,
+      "keyEvent": "5"
+    },
+    {
+      "value": 6,
+      "keyEvent": "6"
+    },
+    {
+      "value": " - ",
+      "keyEvent": "-"
+    },
+    {
+      "value": 1,
+      "keyEvent": "1"
+    },
+    {
+      "value": 2,
+      "keyEvent": "2"
+    },
+    {
+      "value": 3,
+      "keyEvent": "3"
+    },
+    {
+      "value": " + ",
+      "keyEvent": "+"
+    },
+    {
+      "value": 0,
+      "keyEvent": "0",
+      "span": 2
+    },
+    {
+      "value": ".",
+      "keyEvent": "."
+    },
+    {
+      "value": " = ",
+      "keyEvent": "Enter"
+    }
+  ]
+}

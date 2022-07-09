@@ -1,112 +1,45 @@
-import React, { useCallback, useState } from 'react';
-import { Key as KeyEnum } from 'ts-key-enum'
+import React, { useCallback, useEffect, useState } from 'react';
 import Key from './Key';
+import layout from '../config/layout.json';
 
 export interface KeyItem {
-  text: string;
+  value: string | number;
   keyEvent: string;
   span?: number;
 }
 
 type KeyboardProp = {
-  changeHandler: (key: string) => void;
+  changeHandler: (value: string | number) => void;
   clearHandler: () => void;
+  calculateHandler: () => void;
 }
 
-export default function Keyboard({ changeHandler, clearHandler }: KeyboardProp) {
-  const [keys] = useState<Array<KeyItem>>([
-    {
-      text: '(',
-      keyEvent: '(',
-    },
-    {
-      text: 'C',
-      keyEvent: KeyEnum.Escape
-    },
-    {
-      text: ')',
-      keyEvent: ')',
-    },
-    {
-      text: '/',
-      keyEvent: '/',
-    },
-    {
-      text: '7',
-      keyEvent: '7'
-    },
-    {
-      text: '8',
-      keyEvent: '8'
-    },
-    {
-      text: '9',
-      keyEvent: '9'
-    },
-    {
-      text: '*',
-      keyEvent: '*',
-    },
-    {
-      text: '4',
-      keyEvent: '4'
-    },
-    {
-      text: '5',
-      keyEvent: '5'
-    },
-    {
-      text: '6',
-      keyEvent: '6'
-    },
-    
-    {
-      text: '-',
-      keyEvent: '-',
-    },
-    {
-      text: '1',
-      keyEvent: '1'
-    },
-    {
-      text: '2',
-      keyEvent: '2'
-    },
-    {
-      text: '3',
-      keyEvent: '3'
-    },
-    {
-      text: '+',
-      keyEvent: '+',
-    },
-    {
-      text: '0',
-      keyEvent: '0',
-      span: 2
-    },
-    {
-      text: '.',
-      keyEvent: '.'
-    },
-    {
-      text: '=',
-      keyEvent: KeyEnum.Enter,
-    },
-  ]);
+export default function Keyboard({ changeHandler, clearHandler, calculateHandler }: KeyboardProp) {
+  const [keys] = useState<Array<KeyItem>>(layout.keys);
 
-  const pressKeyHandler = useCallback((text: string) => () => {
-    if (KeyEnum.Escape.toString() === text) {
+  const pressKeyHandler = useCallback((keyEvent: string, keyValue: string | number) => () => {
+    if (keyEvent === 'Enter') {
+      calculateHandler();
+    } else if (keyEvent === 'Escape') {
       clearHandler();
     } else {
-      changeHandler(text);
+      changeHandler(keyValue);
     }
-  }, [clearHandler, changeHandler]);
+  }, [clearHandler, changeHandler, calculateHandler]);
+
+  useEffect(() => {
+    const actions = (e: globalThis.KeyboardEvent) => keys.map(({ keyEvent, value }) =>
+      e.key === keyEvent && pressKeyHandler(keyEvent, value)()
+    );
+    window.addEventListener('keydown', actions, false);
+    return () => window.removeEventListener('keydown', actions, false);
+  }, [keys, pressKeyHandler]);
+
 
   return (
     <div className='keyboard'>
       {keys.map((key, i) =>
-        <Key key={i} {...key} onPressed={pressKeyHandler(key.keyEvent)} />
+        <Key key={i} {...key} onPressed={pressKeyHandler(key.keyEvent, key.value)} />
       )}
     </div>
   );

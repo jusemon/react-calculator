@@ -1,13 +1,15 @@
 import React from 'react';
 
 type DisplayProp = {
-  value: string;
+  formula: string;
+  result: string;
 }
 
-export default function Display({ value }: DisplayProp) {
+export default function Display({ formula, result }: DisplayProp) {
   return (
     <div className='display'>
-      {value}
+      <div className='display-formula'>{formula}</div>
+      <div className='display-result'>{result !== '' && '= '}{result}</div>
     </div>
   );
 }
