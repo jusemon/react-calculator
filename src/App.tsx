@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Display from './components/Display';
+import Keyboard from './components/Keyboard';
 
 function App() {
+  const [year] = useState(new Date().getFullYear());
+  const [displayValue] = useState('');
+
+  const clearHandler = () => { }
+  const changeHandler = () => { }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='app'>
+      <header className='app-title'>
+        <h2>Calculator</h2>
       </header>
+      <main className='app-main'>
+        <Display value={displayValue} />
+        <Keyboard clearHandler={clearHandler} changeHandler={changeHandler} />
+      </main>
+      <footer className='app-footer'>
+        <small>&copy; {year} Juan Sebastián Montoya. All Rights Reserved</small>
+      </footer>
     </div>
   );
 }
