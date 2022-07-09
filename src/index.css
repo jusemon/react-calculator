@@ -1,11 +1,11 @@
 :root {
   /* CSS HEX */
-  --primary: #0b132bff;
-  --secondary: #1c2541ff;
-  --tertiary: #3a506bff;
-  --background: rgb(92, 125, 167);
-  --background-light: #5bc0beff;
-  --accent: #6fffe9ff;
+  --primary: #0b132b;
+  --secondary: #1c2541;
+  --tertiary: #3a506b;
+  --background: #5c7da7;
+  --background-light: #5bc0be;
+  --accent: #6fffe9;
 }
 
 body {
@@ -30,6 +30,10 @@ code {
   justify-content: space-between;
   align-items: center;
   height: 100vh;
+}
+
+.app-title {
+  color: var(--primary);
 }
 
 .app-body {
