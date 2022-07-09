@@ -16,29 +16,17 @@ function App() {
     setResult('');
   };
 
-  const mustClearHandler = (result = '', key: string | number = '') => {
-    setFormula(`${result}${key}`);
-    if (result === FORMULA_ERROR) {
-      setFormula(`${key}`)
-      setResult('');
-    }
-    setMustClear(false);
-  };
-
   const changeHandler = (key: string | number) => {
     if (mustClear) {
-      mustClearHandler(result, key);
-      return;
+      clearHandler();
+      setMustClear(false);
+      setFormula(`${key}`);
+    } else {
+      setFormula(`${formula}${key}`);
     }
-    setFormula(`${formula}${key}`);
   };
 
   const calculateHandler = () => {
-    if (mustClear) {
-      mustClearHandler();
-      return;
-    }
-    setFormula(formula);
     try {
       const value = evaluate(formula);
       if (typeof value === 'undefined') {
