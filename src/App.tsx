@@ -16,6 +16,13 @@ function App() {
     setResult('');
   };
 
+  const deleteHandler = () => {
+    setResult('');
+    if (formula.length > 0) {
+      setFormula(formula.slice(0, -1))
+    }
+  }
+
   const changeHandler = (key: string | number) => {
     if (mustClear) {
       clearHandler();
@@ -47,7 +54,7 @@ function App() {
         </header>
         <main className='app-main'>
           <Display formula={formula} result={result} />
-          <Keyboard clearHandler={clearHandler} changeHandler={changeHandler} calculateHandler={calculateHandler} />
+          <Keyboard clearHandler={clearHandler} changeHandler={changeHandler} calculateHandler={calculateHandler} deleteHandler={deleteHandler} />
         </main>
       </div>
       <footer className='app-footer'>

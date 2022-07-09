@@ -76,6 +76,11 @@
     {
       "value": " = ",
       "keyEvent": "Enter"
+    },
+    {
+      "value": "⌫",
+      "keyEvent": "Backspace",
+      "hidden": true
     }
   ]
 }

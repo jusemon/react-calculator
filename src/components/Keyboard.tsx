@@ -6,15 +6,18 @@ export interface KeyItem {
   value: string | number;
   keyEvent: string;
   span?: number;
+  hidden?: boolean;
+  className?: string;
 }
 
 type KeyboardProp = {
   changeHandler: (value: string | number) => void;
   clearHandler: () => void;
   calculateHandler: () => void;
+  deleteHandler: () => void;
 }
 
-export default function Keyboard({ changeHandler, clearHandler, calculateHandler }: KeyboardProp) {
+export default function Keyboard({ changeHandler, clearHandler, calculateHandler, deleteHandler }: KeyboardProp) {
   const [keys] = useState<Array<KeyItem>>(layout.keys);
 
   const pressKeyHandler = useCallback((keyEvent: string, keyValue: string | number) => () => {
@@ -22,10 +25,12 @@ export default function Keyboard({ changeHandler, clearHandler, calculateHandler
       calculateHandler();
     } else if (keyEvent === 'Escape') {
       clearHandler();
+    } else if (keyEvent === 'Backspace') {
+      deleteHandler();
     } else {
       changeHandler(keyValue);
     }
-  }, [clearHandler, changeHandler, calculateHandler]);
+  }, [clearHandler, changeHandler, calculateHandler, deleteHandler]);
 
   useEffect(() => {
     const actions = (e: globalThis.KeyboardEvent) => keys.map(({ keyEvent, value }) =>
