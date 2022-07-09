@@ -6,6 +6,8 @@
   --background: #5c7da7;
   --background-light: #5bc0be;
   --accent: #6fffe9;
+  --accept: #56c49a;
+  --danger: #433a6b;
 }
 
 body {
@@ -45,7 +47,6 @@ code {
 }
 
 .app-main {
-  
   background-color: var(--primary);
   color: var(--background-light);
 }
@@ -81,12 +82,30 @@ button.key {
   font-size: 1rem;
 }
 
-.span-1 {
+button.key.cancel {
+  background-color: var(--danger);
+}
+
+button.key.primary {
+  background-color: var(--accept);
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.column-span-1 {
   grid-column: span 1;
 }
 
-.span-2 {
+.column-span-2 {
   grid-column: span 2;
+}
+
+.row-span-1 {
+  grid-row: span 1;
+}
+
+.row-span-2 {
+  grid-row: span 2;
 }
 
 .app-footer {margin: 5px;}

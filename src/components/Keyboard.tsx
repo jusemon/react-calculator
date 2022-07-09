@@ -5,7 +5,8 @@ import layout from '../config/layout.json';
 export interface KeyItem {
   value: string | number;
   keyEvent: string;
-  span?: number;
+  columnSpan?: number;
+  rowSpan?: number;
   hidden?: boolean;
   className?: string;
 }

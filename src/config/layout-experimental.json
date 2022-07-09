@@ -1,17 +1,21 @@
 {
   "keys": [
     {
-      "value": "C",
-      "keyEvent": "Escape",
-      "className": "cancel"
-    },
-    {
       "value": "(",
       "keyEvent": "("
     },
     {
+      "value": "C",
+      "keyEvent": "Escape",
+      "hidden": true
+    },
+    {
       "value": ")",
       "keyEvent": ")"
+    },
+    {
+      "value": " + ",
+      "keyEvent": "+"
     },
     {
       "value": " / ",
@@ -62,8 +66,9 @@
       "keyEvent": "3"
     },
     {
-      "value": " + ",
-      "keyEvent": "+"
+      "value": " = ",
+      "keyEvent": "Enter",
+      "rowSpan": 2
     },
     {
       "value": 0,
@@ -73,11 +78,6 @@
     {
       "value": ".",
       "keyEvent": "."
-    },
-    {
-      "value": " = ",
-      "keyEvent": "Enter",
-      "className": "primary"
     },
     {
       "value": "⌫",
