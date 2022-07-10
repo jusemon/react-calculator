@@ -7,15 +7,18 @@
     },
     {
       "value": "(",
-      "keyEvent": "("
+      "keyEvent": "(",
+      "className": "operation"
     },
     {
       "value": ")",
-      "keyEvent": ")"
+      "keyEvent": ")",
+      "className": "operation"
     },
     {
       "value": " / ",
-      "keyEvent": "/"
+      "keyEvent": "/",
+      "className": "operation"
     },
     {
       "value": 7,
@@ -31,7 +34,8 @@
     },
     {
       "value": " * ",
-      "keyEvent": "*"
+      "keyEvent": "*",
+      "className": "operation"
     },
     {
       "value": 4,
@@ -47,7 +51,8 @@
     },
     {
       "value": " - ",
-      "keyEvent": "-"
+      "keyEvent": "-",
+      "className": "operation"
     },
     {
       "value": 1,
@@ -63,7 +68,8 @@
     },
     {
       "value": " + ",
-      "keyEvent": "+"
+      "keyEvent": "+",
+      "className": "operation"
     },
     {
       "value": 0,
