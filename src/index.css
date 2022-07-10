@@ -49,6 +49,8 @@ code {
 .app-main {
   background-color: var(--primary);
   color: var(--background-light);
+  border-radius: 10px;
+  box-shadow: 5px 5px rgb(0 0 0 / 50%);
 }
 
 .display {
@@ -63,7 +65,6 @@ code {
   max-width: 500px;
   min-height: 32px;
   word-wrap: break-word;
-  
 }
 
 .keyboard {
