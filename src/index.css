@@ -8,6 +8,7 @@
   --accent: #6fffe9;
   --accept: #56c49a;
   --danger: #433a6b;
+  --secondary-light: #2c3b5b;
 }
 
 body {
@@ -54,16 +55,17 @@ code {
 }
 
 .display {
-  margin: 1rem;
-  min-height: 70px;
+  margin: 1rem 1rem .5rem 1rem;
   background-color: var(--tertiary);
   font-size: 1.5rem;
+  border-radius: 5px;
+  padding: 0 3px;
 }
 
 .display-formula, .display-result {
   text-align: end;
   max-width: 500px;
-  min-height: 32px;
+  min-height: 30px;
   word-wrap: break-word;
 }
 
@@ -94,6 +96,10 @@ button.key.primary {
   background-color: var(--accept);
   font-weight: bold;
   color: var(--primary);
+}
+
+button.key.operation {
+  background-color: var(--secondary-light);
 }
 
 .column-span-1 {
