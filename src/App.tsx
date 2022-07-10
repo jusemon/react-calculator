@@ -16,10 +16,15 @@ function App() {
     setResult('');
   };
 
-  const deleteHandler = () => {
-    setResult('');
+  const deleteHandler = (previuosSlice?: string) => {
     if (formula.length > 0) {
-      setFormula(formula.slice(0, -1))
+      const slice = (previuosSlice ? previuosSlice : formula).slice(0, -1);
+      if (slice.endsWith(' ')) {
+        deleteHandler(slice);
+        return;
+      }
+      setResult('');
+      setFormula(slice)
     }
   }
 
