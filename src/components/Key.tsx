@@ -10,9 +10,17 @@ type KeyProp = {
 }
 
 export default function Key({ value, onPressed, columnSpan = 1, rowSpan = 1, hidden = false, className = '' }: KeyProp) {
+
+  const onKeyPressedHandler = () => {
+    onPressed();
+    if ('vibrate' in navigator) {
+      navigator.vibrate(50);
+    }
+  }
+
   return (
     <React.Fragment>
-      {hidden || <button className={`key column-span-${columnSpan} row-span-${rowSpan} ${className}`} onClick={onPressed}>
+      {hidden || <button className={`key column-span-${columnSpan} row-span-${rowSpan} ${className}`} onClick={onKeyPressedHandler}>
         {value}
       </button>}
     </React.Fragment>
