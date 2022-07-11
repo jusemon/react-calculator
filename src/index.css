@@ -82,7 +82,7 @@ button.key {
   background-color: var(--secondary);
   text-align: center;
   border-radius: 5px;
-  min-width: 80px;
+  min-width: 75px;
   max-width: 100%;
   color: var(--accent);
   font-size: 1rem;
